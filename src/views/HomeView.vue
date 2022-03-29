@@ -2,21 +2,27 @@
   <div class="home">
     <h1>Home Page</h1>
     <p>Hello {{ name }}.I am {{ age }} years old.</p>
-    <button @click="clickHandler">Click me</button>
+    <input type="text" v-model="name" />
+    <button @click="clickHandler">Click</button><br /><br />
+    <button @click="age--">decrease age</button>
+    <button @click="age++">increase age</button>
   </div>
 </template>
 
 <script>
+import { ref } from "@vue/reactivity"; //ref for Reactive Value
+
 export default {
   setup() {
     //variables
-    let name = "Rider";
+    let name = ref("Myint Thway Khine");
 
-    const age = 21;
+    let age = ref(21);
 
     //function
     let clickHandler = () => {
-      console.log("hit");
+      name.value = "Rider";
+      console.log("Name :", name.value);
     };
 
     //return
