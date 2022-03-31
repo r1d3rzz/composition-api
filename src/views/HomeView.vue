@@ -1,32 +1,32 @@
 <template>
   <div class="home">
-    <h1>Names Filter</h1>
-    <input type="text" v-model="search" /><br />
-    search item - {{ search }}
-    <div v-for="name in filterName" :key="name">
-      {{ name }}
-    </div>
+    <h1>Posts List</h1>
+
+    <PostLists :posts="posts" />
   </div>
 </template>
 
 <script>
-import { computed, ref } from "@vue/runtime-core";
+import PostLists from "../components/PostLists";
+
+import { ref } from "@vue/reactivity";
 export default {
+  components: {
+    PostLists,
+  },
   setup() {
-    let search = ref("");
-    let names = ref(["aungaung", "rider", "kyawkyaw", "susu", "ayeaye"]);
-    let filterName = computed(() => {
-      return names.value.filter((n) => {
-        return n.includes(search.value);
-      });
-    });
-    return { names, search, filterName };
+    let posts = ref([
+      {
+        title: "title 1",
+        body: "lorem ipsum 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate praesentium voluptatem nobis eius odio doloribus aliquam ex ut in quos.",
+      },
+      { title: "title 2", body: "lorem ipsum 2" },
+    ]);
+
+    return { posts };
   },
 };
 </script>
 
 <style>
-input {
-  margin: 20px auto;
-}
 </style>
