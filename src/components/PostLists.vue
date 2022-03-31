@@ -1,21 +1,16 @@
 <template>
+  <h1>Posts List</h1>
   <div v-for="post in posts" :key="post.id">
     <SinglePost :post="post" />
   </div>
 </template>
 
 <script>
-import { onMounted, onUnmounted, onUpdated } from "@vue/runtime-core";
 import SinglePost from "../components/SinglePost";
 export default {
   props: ["posts"],
   components: {
     SinglePost,
-  },
-  setup() {
-    onMounted(() => console.log("component mounted"));
-    onUnmounted(() => console.log("component unmounted"));
-    onUpdated(() => console.log("component updated"));
   },
 };
 </script>
