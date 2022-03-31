@@ -2,7 +2,11 @@
   <div class="home">
     <h1>Posts List</h1>
 
-    <PostLists :posts="posts" />
+    <div v-if="showPosts">
+      <PostLists :posts="posts" />
+    </div>
+    <button @click="showPosts = !showPosts">toggle posts</button>
+    <button @click="posts.pop()">delete posts</button>
   </div>
 </template>
 
@@ -15,6 +19,7 @@ export default {
     PostLists,
   },
   setup() {
+    let showPosts = ref(true);
     let posts = ref([
       {
         title: "title 1",
@@ -23,7 +28,7 @@ export default {
       { title: "title 2", body: "lorem ipsum 2" },
     ]);
 
-    return { posts };
+    return { posts, showPosts };
   },
 };
 </script>
