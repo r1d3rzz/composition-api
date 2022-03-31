@@ -12,6 +12,7 @@
 
 <script>
 import PostLists from "../components/PostLists";
+import getPosts from "../composable/getPosts";
 
 import { ref } from "@vue/reactivity";
 export default {
@@ -19,21 +20,7 @@ export default {
     PostLists,
   },
   setup() {
-    let posts = ref([]);
-    let error = ref("");
-
-    let load = async () => {
-      try {
-        let response = await fetch("http://localhost:3000/posts");
-        if (response.status === 404) {
-          throw new Error("URL NOT FOUND");
-        }
-        let data = await response.json();
-        posts.value = data;
-      } catch (err) {
-        error.value = err.message;
-      }
-    };
+    let { posts, error, load } = getPosts();
 
     load();
 
