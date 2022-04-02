@@ -6,17 +6,21 @@
     <div v-if="posts.length > 0">
       <PostLists :posts="posts" />
     </div>
-    <div v-else>loading...</div>
+    <div v-else>
+      <LoadingSpinner />
+    </div>
   </div>
 </template>
 
 <script>
+import LoadingSpinner from "../components/LoadingSpinner";
 import PostLists from "../components/PostLists";
 import getPosts from "../composable/getPosts";
 
 import { ref } from "@vue/reactivity";
 export default {
   components: {
+    LoadingSpinner,
     PostLists,
   },
   setup() {
