@@ -34,4 +34,9 @@ export default {
 </script>
 
 <style>
+.home {
+  max-width: 1200px;
+  text-align: start;
+  margin: 0 auto;
+}
 </style>

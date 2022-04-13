@@ -14,6 +14,17 @@
       "id": 3,
       "title": "Post Title 3",
       "body": "Post Body 3"
+    },
+    {
+      "title": "This is new Post",
+      "body": "this is Body",
+      "tags": [
+        "html",
+        "css",
+        "js",
+        "php"
+      ],
+      "id": 4
     }
   ]
 }

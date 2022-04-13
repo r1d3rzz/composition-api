@@ -2,7 +2,7 @@
   <h1>Create Your Post</h1>
 
   <div class="postCreate">
-    <form>
+    <form @submit.prevent="addPost">
       <div class="inputBox">
         <label for="title" class="postLabel">Post Title</label>
         <input
@@ -16,13 +16,13 @@
 
       <div class="inputBox">
         <label for="body" class="postLabel">Post Body</label>
-        <input
-          type="text"
+        <textarea
+          class="postTextarea"
+          cols="30"
+          rows="5"
           id="body"
-          class="postInput"
           v-model="body"
-          required
-        />
+        ></textarea>
       </div>
 
       <div class="inputBox">
@@ -68,7 +68,19 @@ export default {
       tag.value = "";
     };
 
-    return { title, body, tag, addNewTags, tags };
+    let addPost = async () => {
+      await fetch("http://localhost:3000/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: title.value,
+          body: body.value,
+          tags: tags.value,
+        }),
+      });
+    };
+
+    return { title, body, tag, addNewTags, tags, addPost };
   },
 };
 </script>
@@ -91,6 +103,11 @@ export default {
   outline: none;
   font-size: 22px;
   border-bottom: 2px solid gray;
+}
+.postTextarea {
+  border-radius: 5px;
+  width: 80%;
+  font-size: 15px;
 }
 .createBtn {
   border: none;

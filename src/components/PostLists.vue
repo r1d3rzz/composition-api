@@ -1,6 +1,6 @@
 <template>
   <h1>Posts List</h1>
-  <div v-for="post in posts" :key="post.id">
+  <div v-for="post in posts" :key="post.id" class="singlePost">
     <SinglePost :post="post" />
   </div>
 </template>
@@ -16,4 +16,10 @@ export default {
 </script>
 
 <style>
+.singlePost {
+  background-color: #e2d5d5;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
 </style>

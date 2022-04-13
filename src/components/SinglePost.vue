@@ -3,6 +3,9 @@
     <h2>{{ post.title }}</h2>
   </router-link>
   <p>{{ cutPostBody }}</p>
+  <div v-for="tag in post.tags" class="tagContainer" :key="tag">
+    <span>{{ tag }}</span>
+  </div>
 </template>
 
 <script>
