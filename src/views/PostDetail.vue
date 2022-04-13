@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { useRoute } from "vue-router";
 import LoadingSpinner from "../components/LoadingSpinner";
 import getPost from "../composable/getPost";
 
@@ -19,7 +20,9 @@ export default {
   components: { LoadingSpinner },
   props: ["id"],
   setup(prop) {
-    let { post, error, load } = getPost(prop.id);
+    let route = useRoute();
+
+    let { post, error, load } = getPost(route.params.id);
 
     load();
 
