@@ -1,7 +1,10 @@
 <template>
-  <div v-if="post">
+  <div v-if="post" class="singlePost">
     <h2>{{ post.title }}</h2>
     <p>{{ post.body }}</p>
+    <div v-for="tag in post.tags" class="tagContainer" :key="tag">
+      <span>{{ tag }}</span>
+    </div>
   </div>
   <div v-else>
     <LoadingSpinner />

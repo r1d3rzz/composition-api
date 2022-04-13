@@ -21,5 +21,8 @@ export default {
   padding: 5px 10px;
   border-radius: 5px;
   margin: 10px 0;
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: start;
 }
 </style>

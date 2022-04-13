@@ -35,7 +35,7 @@ export default {
 
 <style>
 .home {
-  max-width: 1200px;
+  max-width: 600px;
   text-align: start;
   margin: 0 auto;
 }
