@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import PostDetail from "../views/PostDetail.vue";
 import PostCreate from "../views/PostCreate.vue";
+import PostTag from "../views/PostTag.vue";
 
 const routes = [
   {
@@ -19,6 +20,12 @@ const routes = [
     path: "/post/create",
     name: "postCreate",
     component: PostCreate,
+  },
+  {
+    path: "/post/tags/:tag",
+    name: "postTag",
+    component: PostTag,
+    props: true,
   },
 ];
 

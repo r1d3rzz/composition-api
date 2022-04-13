@@ -1,47 +1,21 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "Post Title 1",
-      "body": "Post Body 1"
-    },
-    {
-      "id": 2,
-      "title": "Post Title 2",
-      "body": "Post Body 2"
-    },
-    {
-      "id": 3,
-      "title": "Post Title 3",
-      "body": "Post Body 3"
-    },
-    {
       "title": "This is new Post",
       "body": "this is Body",
-      "tags": [
-        "html",
-        "css",
-        "js",
-        "php"
-      ],
+      "tags": ["html", "css", "js", "php"],
       "id": 4
     },
     {
       "title": "This is two",
       "body": "this is two",
-      "tags": [
-        "html"
-      ],
+      "tags": ["html"],
       "id": 5
     },
     {
       "title": "This is third",
       "body": "this is third",
-      "tags": [
-        "html",
-        "css",
-        "php"
-      ],
+      "tags": ["html", "css", "php"],
       "id": 6
     }
   ]
