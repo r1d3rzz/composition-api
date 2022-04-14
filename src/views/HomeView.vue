@@ -3,8 +3,13 @@
     <div v-if="error">
       {{ error }}
     </div>
-    <div v-if="posts.length > 0">
-      <PostLists :posts="posts" />
+    <div v-if="posts.length > 0" class="layout">
+      <div>
+        <PostLists :posts="posts" />
+      </div>
+      <div>
+        <TagCloud></TagCloud>
+      </div>
     </div>
     <div v-else>
       <LoadingSpinner />
@@ -13,6 +18,7 @@
 </template>
 
 <script>
+import TagCloud from "../components/TagCloud";
 import LoadingSpinner from "../components/LoadingSpinner";
 import PostLists from "../components/PostLists";
 import getPosts from "../composable/getPosts";
@@ -20,6 +26,7 @@ import getPosts from "../composable/getPosts";
 import { ref } from "@vue/reactivity";
 export default {
   components: {
+    TagCloud,
     LoadingSpinner,
     PostLists,
   },
@@ -35,8 +42,13 @@ export default {
 
 <style>
 .home {
-  max-width: 600px;
+  max-width: 1000px;
   text-align: start;
   margin: 0 auto;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
 }
 </style>

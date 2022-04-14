@@ -22,7 +22,7 @@ export default {
   border-radius: 5px;
   margin: 10px 0;
   max-width: 400px;
-  margin: 20px auto;
+  margin: 20px;
   text-align: start;
 }
 </style>
