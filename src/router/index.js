@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import PostDetail from "../views/PostDetail.vue";
 import PostCreate from "../views/PostCreate.vue";
 import PostTag from "../views/PostTag.vue";
+import RealTime from "../views/RealTime.vue";
 
 const routes = [
   {
@@ -26,6 +27,10 @@ const routes = [
     name: "postTag",
     component: PostTag,
     props: true,
+  },
+  {
+    path: "/realtime",
+    component: RealTime,
   },
 ];
 
