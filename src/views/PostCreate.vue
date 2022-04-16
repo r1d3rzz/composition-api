@@ -55,6 +55,7 @@
 <script>
 import { ref } from "@vue/reactivity";
 import { useRouter } from "vue-router";
+import { db } from "../firebase/config";
 export default {
   setup() {
     let router = useRouter();
@@ -71,15 +72,13 @@ export default {
     };
 
     let addPost = async () => {
-      await fetch("http://localhost:3000/posts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title: title.value,
-          body: body.value,
-          tags: tags.value,
-        }),
-      });
+      let newPost = {
+        title: title.value,
+        body: body.value,
+        tags: tags.value,
+      };
+
+      let response = await db.collection("posts").add(newPost);
 
       router.push("/");
     };
